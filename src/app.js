@@ -7,7 +7,7 @@ function App() {
     const [currentForm, setCurrentForm] = useState('login');
 
     const toggleForm = (forName) => {
-        setCurrentForm(formName);
+        setCurrentForm(forName);
     }
 
     return (
