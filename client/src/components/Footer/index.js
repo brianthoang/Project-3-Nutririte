@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import React, { useState } from 'react';
 import { validateEmail } from '../../utils/helper';
 
@@ -71,4 +71,5 @@ function ContactForm() {
         </section>
     );
 };
+
 export default Footer;
