@@ -7,6 +7,7 @@ import Login from '../Login';
 import MealPrep from '../MealPrep';
 import Recipes from '../Recipes';
 
+
 function Header() {
     // state of current page
     const [currentPage, handlePageChange] = useState('Home');
@@ -29,19 +30,21 @@ function Header() {
         };
 
     };
+    return (
+        <div>
+            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
+            <div>
+            {
+                // render the component returned by 'renderPage()'
+                renderPage()
+            }
+            <Footer/>
+            </div>
+        </div>
+    );
 };
 
-return (
-    <div>
-        <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-        <div>
-        {
-            // render the component returned by 'renderPage()'
-            renderPage()
-        }
-        <Footer/>
-        </div>
-    </div>
-);
+
+
 
 export default Header;

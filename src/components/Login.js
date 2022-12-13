@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
+
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');  
     
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
     }
@@ -22,3 +23,5 @@ export const Login = (props) => {
         </div>
     )
 }
+
+export default Login;
