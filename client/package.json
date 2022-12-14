@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.7.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +13,7 @@
     "bootstrap": "^5.2.2",
     "dependencies": "^0.0.1",
     "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
     "in": "^0.19.0",
     "later": "^1.2.0",
     "need": "^0.0.0",
