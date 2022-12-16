@@ -6,22 +6,40 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-    }
+export const QUERY_ME = gql`
+query me($username: String!) {
+  me(username: $username) {
+    _id
+    username
+    email   
+  }
   }
 `;
+
+
+export const QUERY_MEALS = gql`
+query meals {
+  meals {
+    _id
+    mealText
+    mealAuthor
+    createdAt
+  }
+}
+`;
+
+export const QUERY_RECIPES = gql`
+query recipes {
+  recipes {
+    _id
+    recipeText
+    recipeAuthor
+    createdAt
+  }
+}
+`;
+

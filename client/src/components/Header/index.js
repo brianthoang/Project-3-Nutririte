@@ -1,50 +1,46 @@
-import React, { useState } from 'react';
-import Navigation from '../Navigation';
-// home page is landing page
-import Home from '../Home';
-import Footer from '../Footer';
-import Login from '../Login';
-import MealPrep from '../MealPrep';
-import Recipes from '../Recipes';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+import Auth from '../../utils/auth';
 
-function Header() {
-    // state of current page
-    const [currentPage, handlePageChange] = useState('Home');
-
-    const renderPage = () => {
-    // switch statement that will return the appropriate component of the 'currentPage'
-    switch (currentPage) {
-        case "Home":
-            return <Home></Home>
-        case "Login":
-            return <Login></Login>
-        case "Meal Prep":
-            return <MealPrep></MealPrep>
-        case "Recipes":
-            return <Recipes></Recipes>
-        default:
-            return<Home></Home>
-    
-
-        };
-
-    };
-    return (
+const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  return (
+    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+      <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
-            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-            <div>
-            {
-                // render the component returned by 'renderPage()'
-                renderPage()
-            }
-            <Footer/>
-            </div>
+          <Link className="text-light" to="/">
+            <h1 className="m-0">Tech Thoughts</h1>
+          </Link>
+          <p className="m-0">Get into the mind of a programmer.</p>
         </div>
-    );
+        <div>
+          {Auth.loggedIn() ? (
+            <>
+              <Link className="btn btn-lg btn-info m-2" to="/me">
+                {Auth.getProfile().data.username}'s profile
+              </Link>
+              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="btn btn-lg btn-info m-2" to="/login">
+                Login
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/signup">
+                Signup
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </header>
+  );
 };
-
-
-
 
 export default Header;

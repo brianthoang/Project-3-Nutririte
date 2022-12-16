@@ -5,19 +5,21 @@ import { QUERY_MEALS } from '../utils/queries';
 
 import MealList from '../components/MealList';
 import MealForm from '../components/MealForm';
-import Auth from '../utils/auth';
 
 const Mealprep = () => {
   const [currentMeal, setCurrentMeal] = useState(null);
 
+
   const { loading, data } = useQuery(QUERY_MEALS);
   const meals = data?.meals || [];
+
 
   const handleClick = (meal) => {
     if (currentMeal?.mealId === meal.mealId) {
       setCurrentMeal(null);
     } else {
       setCurrentMeal(meal);
+
     }
   };
 

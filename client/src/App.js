@@ -1,20 +1,30 @@
-import React, { useState } from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
+import React from 'react';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Login } from "./components/Login.js";
-import { Register } from "./components/Register.js";
+import Home from "./pages/Home.js";
+import Header from "./components/Header/index.js";
+import Footer from "./components/Footer/index.js";
+// import Profile from "./pages/Profile.js";
+// import Mealprep from "./pages/Mealprep.js";
+// import Recipes from "./pages/Recipes.js";
+// import Signup from "./pages/Signup.js";
+import Login from "./components/Login/index.js";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-    uri: '/graphql',
-  });
-  
+  uri: '/graphql',
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
+});
+
 const authLink = setContext((_, { headers }) => {
-    // get the authentication token from local storage if it exists
     const token = localStorage.getItem('id_token');
-    // return the headers to the context so httpLink can read them
     return {
       headers: {
         ...headers,
@@ -28,15 +38,10 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
- const [currentForm, setCurrentForm] = useState('login');
 
-   const toggleForm = (forName) => {
-            setCurrentForm(forName);
-        }
+
 function App() {
-   
     return (
-        
       <ApolloProvider client={client}>
         <Router>
           <div className="flex-column justify-flex-start min-100-vh">
@@ -51,7 +56,7 @@ function App() {
                   path="/login"
                   element={<Login />}
                 />
-                <Route 
+                {/* <Route 
                   path="/signup"
                   element={<Signup />}
                 />
@@ -66,7 +71,7 @@ function App() {
                 <Route 
                   path="/recipes"
                   element={<Recipes />}
-                />
+                /> */}
               </Routes>
             </div>
             <Footer />
@@ -75,14 +80,5 @@ function App() {
       </ApolloProvider>
     );
   }
-  
-  export default App;
-  
 
-//     return (
-        // <div className="App">
-        //     {
-        //         currentForm === "login" ?  <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/> 
-        //     } 
-        // </div>
-//     );
+  export default App;
