@@ -1,29 +1,57 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPES } from '../utils/queries';
-// import RecipeList from '../components/RecipeList';
+// import RecipeItem from '../components/RecipeItem';
+import RecipeForm from '../components/MealForm';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import RecipeList from '../utils/recipeAPI';
 
-var recipelist = require('../utils/recipeAPI');
 
-const Recipes = () => {
-  const { recipeID } = useParams();
+function Recipes() {
+    // const dispatch = useDispatch();
+    // const state = useSelector((state) => state);
+    const [currentRecipe, setCurrentRecipe] = useState();
+
+   const { recipeID } = useParams();
 
     const { loading, data } = useQuery(QUERY_RECIPES, {
         variables: { recipeID: recipeID }
+
     });
 
     const recipes = data?.recipes || [];
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const handleClick = (recipe) => {
+          if (currentRecipe?.recipeId === recipe.recipeId) {
+            setCurrentRecipe(null);
+        } else {
+            setCurrentRecipe(recipe);
 
+        }
+    };
+    
     return (
-        <div className="container my-1">
-            <RecipeList recipes={recipes} />
-        </div>
-    );
+        <main>
+            <div className="flex-row justify-center">
+                <div className="col-12 col-md-10 mb-3 p-3">
+                    <RecipeForm />
+                </div>
+                <div className="col-12 col-md-10 mb-3 p-3">
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <RecipeList
+                            recipes={recipes}
+                            title="Click on a recipe to see details"
+                            handleClick={handleClick}
+                            currentRecipe={currentRecipe}
+                        />
+                    )}
+                </div>
+            </div>
+        </main>
+    )
 };
 
 export default Recipes;

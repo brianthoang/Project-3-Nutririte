@@ -1,2 +1,12 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import Login from '../pages/Login.js';
+
+const Home = () =>  {
+    return (
+        <div>
+        <Login />
+        </div>
+    );
+}
+
+export default Home;
