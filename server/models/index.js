@@ -1,3 +1,5 @@
 const User = require('./User');
+const ShoppingCart = require('./ShoppingCart');
 
-module.exports = { User };
+
+module.export = { User, ShoppingCart };
