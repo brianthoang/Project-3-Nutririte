@@ -10,13 +10,12 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/orderHistory">
-              Order History
+            NutriRite History!
             </Link>
           </li>
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
-              Logout
+              NutriLogout
             </a>
           </li>
         </ul>
@@ -26,12 +25,12 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/signup">
-              Signup
+              NutriSignup
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/login">
-              Login
+              NutriLogin
             </Link>
           </li>
         </ul>
@@ -44,10 +43,9 @@ function Nav() {
       <h1>
         <Link to="/">
           <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          NutriRite!
         </Link>
       </h1>
-
       <nav>
         {showNavigation()}
       </nav>
