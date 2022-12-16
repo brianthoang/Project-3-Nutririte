@@ -18,6 +18,6 @@ e-commerce features like shaker, tubaware, nutririte merchandise
 
 ## Collaborators
 [Kevin Ng](https://github.com/KevinNg2)
-[Salamn Danesh](https://github.com/SalmanDanesh93)
+[Salman Danesh](https://github.com/SalmanDanesh93)
 [Brandon Villasenor](https://github.com/Nodnarbrones)
 [Brian Hoang](https://github.com/brianthoang)
