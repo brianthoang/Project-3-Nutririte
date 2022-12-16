@@ -7,6 +7,28 @@ const stripe = require('stripe')('pk_live_51MFWNjKSUR1M48nBJuIYSPd1eZTRkYGt6TQ6C
 // need help on this
 const resolvers = {
     Query: {
+        categories: async () => {
+            return Category.find();
+        },
+
+        recipes: async (parent, { category, name }) => {
+            const params = {};
+
+            if (category) {
+                params.category = category;
+            }
+
+            if (name) {
+                params.name = {
+                    $regex: name
+                };
+            }
+
+            return Recipe.find(params).populate('category');
+        },
+        recipe: async (parent, { _id }) => {
+            return await Recipe.findById(_id).populate('category');
+        },
         user: async (parent, pargs, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
@@ -77,6 +99,44 @@ const resolvers = {
 
             return { token, user };
         },
-        
+        addShoppingCart: async (parent, { recipes }, context) => {
+            console.log(context);
+            if (context.user) {
+                const shoppingCart = await ShoppingCart.create({ recipes });
+
+                await User.findByIdAndUpdate(context.user._id, { $push: { shoppingCart: shoppingCart } });
+
+                return order; 
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        updateRecipe: async (parent, { _id, quantity }) => {
+            const decrement = Math.abs(quantity) * -1;
+
+            return Recipe.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+
+            return { token, user };
+        }
+    }
+};
+
+module.exports = resolvers;
+
 
     
