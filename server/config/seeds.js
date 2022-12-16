@@ -1,34 +1,79 @@
 const db = require('./connection');
-const { User, Recipe } = require('../models');
+const { User, Recipe, Category } = require('../models');
 
 db.once('open', async () => {
-    await Recipe.deletemany({});
+    await Category.deleteMany();
+
+    const categories = await Category.insertMany([
+        { name: 'Mediterranean' },
+        { name: 'Latin' },
+        { name: 'Asian' },
+        { name: 'Tex-Mex' },
+        { name: 'European' },
+    ]);
+
+    console.log('categories seeded');
+
+    await Product.deleteMany();
 
     const recipes = await Recipe.insertMany([
         {
-            name: '',
-            description: '',
+            name: 'apple',
+            description:
+                'apple',
             image: '',
-            nutrition: ''
+            category: categories[0]._id,
+            price: 1.00,
+            quantity: 1000
+        },
+        {
+            name: 'orange',
+            description:
+                'orange',
+            image: '',
+            category: categories[0]._id,
+            price: 1.00,
+            quantity: 1000
+        },
+        {
+            name: 'peach',
+            description:
+                'peach',
+            image: '',
+            category: categories[0]._id,
+            price: 1.00,
+            quantity: 1000
         }
     ]);
 
-    console.log('recipes seeded');
 
-    await User.deletemany({});
+    console.log('products seeded');
+
+    await User.deleteMany();
 
     await User.create({
-        Name: '',
-        Email: '',
-        Password: '',
-        Recipes: [
+        firstName: 'Salman',
+        lastName: 'Danesh',
+        email: 'SalmanDanesh@testemail.com',
+        password: 'password1234',
+        orders: [
             {
-                products: [ ],
+                recipes: [recipes[0]._id, recipes[0]._id, recipes[1]._id]
             }
         ]
+    });
+
+    await User.create({
+        firstName: 'Kevin',
+        lastName: 'NG',
+        email: 'Kevinng@testemail.com',
+        password: 'password4321'
     });
 
     console.log('users seeded');
 
     process.exit();
-});
+
+})
+
+    

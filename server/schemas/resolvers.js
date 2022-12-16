@@ -1,10 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Recipe, ShoppingCart } = require('../models');
 const { signToken } = require('../utils/auth');
-// need to work on stripe integration
 const stripe = require('stripe')('pk_live_51MFWNjKSUR1M48nBJuIYSPd1eZTRkYGt6TQ6CMUnLF2PiUAeGX44wozgAyfDFEUx8nH1t80VlJ497K9f5ICUbK93003itH1yGr');
 
-// need help on this
+
 const resolvers = {
     Query: {
         categories: async () => {
