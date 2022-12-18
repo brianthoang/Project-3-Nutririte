@@ -111,7 +111,7 @@ db.once('open', async () => {
       name: 'Mediterranean Ratatouille',
       category: categories[1]._id,
       description:
-        '',
+        '1/4 cup olive oil, 2 large onions, finely chopped, 4 cloves garlic, 1 large eggplant, cut into 1" cubes, 4 medium green bell peppers, cut into 1" chunks, 4 small zucchini, cut into 1/4" slices, 6 large ripe tomatoes, finely chopped or 1 can (28 ounces) diced tomatores, 1 teaspoon salt, 1 teaspoons sugar, 2 teaspoons dried oregano',
       image: 'mediterranean-ratatouille.jpg',
       price: 1.00,
       quantity: 50
@@ -138,18 +138,27 @@ db.once('open', async () => {
       name: 'Salad Aveyronnaise',
       category: categories[1]._id,
       description:
-        '',
+        '4.0 tbsp mild-tasting olive oil , such as Filippo Berio, 100.0g Roquefort , cut into chunks with a small, sharp knife, 500.0g punnet cherry tomatoes , halved, 1 garlic clove, drizzle extra-virgin olive oil, 3 large handfuls baby spinach or other salad leaves, For the vinaigrette, 5.0 tbsp walnuts, large handful basil leaves, 2.0 tbsp sherry vinegar, 200.0g pack bacon lardons',
       image: 'salad-aveyronnaise.jpg',
       price: 1.00,
       quantity: 50
     },
     {
       name: 'Asian Pear Slaw',
-      category: categories[4]._id,
+      category: categories[3]._id,
       description:
         '1/3 cup red onion, finely sliced, Pinch of coarse salt, such as pink himalayan, 1 asian pear, peeled and cut into small matchstics, 1 firm mango, cut into small matchsticks, Juice of 1 lime, 2 tablespoons rice vinegar, 1/3 cup bruised and chopped fresh mint and cilantro (equal portions), 1/2 teaspoon or more of aleppo pepper',
       image: 'asian-pear-slaw.jpg',
       price: 1.00,
+      quantity: 50
+    },
+    {
+      name: 'Wasabi Salmon With Bok Choy, Green Cabbage and Shittakes',
+      category: categories[3]._id,
+      description:
+      '1/4 cup mayonnaise, 1 teaspoon wasabi paste (Japanese horseradish paste), 1 1" piece ginger, peeled, finely grated, 2 large garlic cloves, finely grated, 4 6-ounce skinless salmon fillets (preferably wild), Kosher salt, freshly ground pepper, 1 pound baby bok choy, halved, 2 cups (packed) finely shredded green cabbage (about 5 ounces), 4 ounces shiitake mushrooms, stemmed, sliced if large, 2 tablespoons olive oil, Ingredient info: Wasabi paste is available in the Asian foods section of some supermarkets and at Japanese markets.',
+      image: 'wasabi-salmon-bokchoy-green-cabbage-shiitakes.jpg',
+      price: 5.00,
       quantity: 50
     },
   ]);
