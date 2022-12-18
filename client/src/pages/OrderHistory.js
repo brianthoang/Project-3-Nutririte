@@ -14,7 +14,7 @@ function OrderHistory() {
 
   return (
     <>
-      <div className="container my-1">
+      <div className="container user1">
         <Link to="/">Take Me Back to the NutriRite Products</Link>
 
         {user ? (
@@ -23,7 +23,7 @@ function OrderHistory() {
               NutriRite Order History of {user.firstName} {user.lastName}
             </h2>
             {user.orders.map((order) => (
-              <div key={order._id} className="my-2">
+              <div key={order._id} className="user2">
                 <h3>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                 </h3>

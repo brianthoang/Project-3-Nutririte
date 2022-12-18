@@ -30,12 +30,12 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="container user1">
       <Link to="/signup">Take me to NutriSignup</Link>
 
       <h2>NutriLogin</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+        <div className="flex-row space-between user2">
           <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
@@ -45,7 +45,7 @@ function Login(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="flex-row space-between user2">
           <label htmlFor="pwd">NutriPassword:</label>
           <input
             placeholder="******"

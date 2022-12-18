@@ -81,7 +81,7 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
+        <div className="container user1">
           <Link to="/">Take me back to my NutriRite Products</Link>
 
           <h2>{currentProduct.name}</h2>
