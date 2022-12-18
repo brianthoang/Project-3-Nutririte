@@ -6,11 +6,7 @@ const NoMatch = () => {
     <div>
       <Jumbotron>
         <h1>404 - No Page Found</h1>
-        <h1>
-          <span role="img" aria-label="Face With Rolling Eyes Emoji">
-            🙄
-          </span>
-        </h1>
+        <h1>Please Try Refreshing!</h1>
       </Jumbotron>
     </div>
   );

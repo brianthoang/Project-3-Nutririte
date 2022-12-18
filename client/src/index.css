@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+
 :root {
-  --primary: #232F3E;
   --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
-  --spacing-one: calc(1rem * 0.5);
-  --spacing-two: calc(1rem);
+  --tertiary: #04b115;
+  --light: #dbe4b3;
+  --dark: #032735;
+  --error: rgb(215, 19, 19);
+  --spacing-one: calc(2rem * 0.5);
+  --spacing-two: calc(1.5rem);
 }
 
 * {
@@ -16,6 +18,7 @@
 html,
 body {
   min-height: 100%;
+
 }
 
 body {
@@ -26,6 +29,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+  background:linear-gradient(90deg, rgb(217, 255, 210) 35%, rgb(201, 204, 206) 49%, rgb(195, 211, 163) 100%)
 }
 
 h1,
@@ -41,23 +45,23 @@ h6 {
 }
 
 h1 {
-  font-size: 2.25rem;
-}
-
-h2 {
   font-size: 2rem;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 h6 {
@@ -65,8 +69,8 @@ h6 {
 }
 
 p {
-  font-size: 1.1rem;
-  margin-top: 0;
+  font-size: 1.6rem;
+  margin-top: .2;
 }
 
 a {
@@ -80,7 +84,7 @@ a:hover {
 }
 
 header {
-  background: var(--primary);
+  background: linear-gradient(190deg, rgb(31, 100, 135) 35%, rgb(62, 123, 62) 45%, rgb(6, 181, 18) 100%)
 }
 
 header a {
@@ -101,23 +105,24 @@ button {
 
 button:hover {
   opacity: .8;
+  background-color: #72ee49;
+  color: #272418;
+  border: 2px solid;
+  transform: scale(1.1, 1.1);
 }
 
 button[disabled] {
   cursor: default;
-  opacity: .8;
+  opacity: 1;
 }
 
 img {
   max-width: 100%;
 }
 
-span[role="img"] {
-  cursor: default;
-}
 
 form {
-  width: 40%;
+  width: 50%;
 }
 
 input {
@@ -139,6 +144,8 @@ input:focus {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background-color:rgb(168, 215, 57),
+
 }
 
 .flex-row {
@@ -164,12 +171,12 @@ input:focus {
   margin-left: var(--spacing-two);
 }
 
-.my-1 {
+.user1 {
   margin-top: var(--spacing-one);
   margin-bottom: var(--spacing-one);
 }
 
-.my-2 {
+.user2 {
   margin-top: var(--spacing-two);
   margin-bottom: var(--spacing-two);
 }
@@ -195,7 +202,7 @@ input:focus {
 }
 
 .card {
-  width: 25%;
+  width: 30%;
   text-align: center;
 }
 
@@ -203,8 +210,53 @@ input:focus {
   color: var(--error);
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
+@media screen and (max-width: 1336px) {
+  main {
+      flex-direction: column;
+  }
+  aside {
+      display: flex;
+  }
+  aside img {
+      width: 200px;
+  }
+  aside hr {
+      display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .header-container {
+      flex-direction: column;
+      justify-content: center;
+  }
+  iframe {
+      margin: 10px auto;
+  }
+  .header-title {
+      width: fit-content;
+      margin: 0 auto;
+      padding: 10px;
+  }
+  main {
+      flex-direction: column;
+  }
+}
+@media screen and (max-width: 900px) {
+  main {
+      flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  iframe {
+      width: 90%;
+      height: 240px;
+      margin: 5px auto;
+  }
+  .header-container {
+      padding: 30px;
+  }
+  button {
+      margin: 10px;
   }
 }
