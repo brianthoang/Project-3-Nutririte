@@ -6,18 +6,24 @@ NutriRite gives you the food, the advice, and support you need to achieve your n
 ## User Story
 As a health conscious enthusiast, I want to be able to access various meal prep plans, while being able to see the nutritional values of each ingredient included. 
 
-<!-- insert screen shots here  -->
+## Visuals
+<img src = "client\public\images\Landing-Page.png">
+<img src= "client\public\images\Login-Page.png">
+<img src= "client\public\images\Sign-up.png">
+<img src= "client\public\images\Cart.png">
+<img src= "client\public\images\Checkout.png">
+<img src= "client\public\images\recipe.png">
+
+
 
 ## Installation
-- Be sure to clone the repo with the SSH code
+- Be sure to clone the repo with the SSH code 
   [SSH Code](https://github.com/brianthoang/Project-3-Nutririte.git)
 - In Gitbash, run the following code 
   - npm install
   - npm run seed
   - npm run develop
-
   
-
 ## Usage
 
 ## Future Development
