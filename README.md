@@ -9,6 +9,14 @@ As a health conscious enthusiast, I want to be able to access various meal prep 
 <!-- insert screen shots here  -->
 
 ## Installation
+- Be sure to clone the repo with the SSH code
+  [SSH Code](https://github.com/brianthoang/Project-3-Nutririte.git)
+- In Gitbash, run the following code 
+  - npm install
+  - npm run seed
+  - npm run develop
+
+  
 
 ## Usage
 
