@@ -7,12 +7,12 @@ NutriRite gives you the food, the advice, and support you need to achieve your n
 As a health conscious enthusiast, I want to be able to access various meal prep plans, while being able to see the nutritional values of each ingredient included. 
 
 ## Visuals
-<img src = "client\public\images\Landing-Page.png">
-<img src= "client\public\images\Login-Page.png">
-<img src= "client\public\images\Sign-up.png">
-<img src= "client\public\images\Cart.png">
-<img src= "client\public\images\Checkout.png">
-<img src= "client\public\images\recipe.png">
+<img src = "client\public\images\Landing-Page.PNG">
+<img src= "client\public\images\Login-Page.PNG">
+<img src= "client\public\images\Sign-up.PNG">
+<img src= "client\public\images\Cart.PNG">
+<img src= "client\public\images\Checkout.PNG">
+<img src= "client\public\images\recipe.PNG">
 
 
 
